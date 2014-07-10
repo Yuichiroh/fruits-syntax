@@ -1,0 +1,659 @@
+@import "syntax-variables";
+
+.editor-colors {
+    background-color: @syntax-background-color;
+    color: @syntax-text-color;
+}
+
+.editor {
+    background-color: @syntax-background-color;
+    color: @syntax-text-color;
+
+    .wrap-guide {
+        background-color: @syntax-wrap-guide-color;
+    }
+
+    .indent-guide {
+        color: @syntax-indent-guide-color;
+    }
+
+    .invisible-character {
+        color: @syntax-invisible-character-color;
+    }
+
+    .gutter {
+        background-color: @syntax-gutter-background-color;
+        color: @syntax-gutter-text-color;
+
+        .line-number {
+            &.cursor-line {
+                background-color: @syntax-gutter-background-color-selected;
+                color: @syntax-gutter-text-color-selected;
+            }
+
+            &.cursor-line-no-selection {
+                background-color: @syntax-gutter-background-color;
+                color: @syntax-gutter-text-color;
+            }
+        }
+    }
+
+    .cursor-line {
+        background-color: @syntax-cursor-line;
+    }
+
+    .gutter .line-number.folded,
+    .gutter .line-number:after,
+    .fold-marker:after {
+        color: @light-gray;
+    }
+
+    .invisible {
+        color: @syntax-text-color;
+    }
+
+    .cursor {
+        color: @syntax-cursor-color;
+    }
+
+    .selection .region {
+        background-color: @syntax-selection-color;
+    }
+}
+
+.editor .search-results .marker .region {
+    background-color: transparent;
+    border: 1px solid @syntax-result-marker-color;
+}
+
+.editor .search-results .marker.current-result .region {
+    border: 1px solid @syntax-result-marker-color-selected;
+}
+
+.comment {
+    color: @syntax-line-comment;
+
+    &.block {
+        color: @syntax-block-comment;
+
+        &.documentation {
+            color: @syntax-documentation;
+        }
+
+    }
+
+    &.line.number-sign {
+        color: @syntax-line-comment;
+    }
+}
+
+
+.entity {
+    &.name {
+        color: @earth-blue;
+
+        &.class, &.type.class {
+            color: @earth-blue;
+            // font-style: italic;
+        }
+
+        &.type {
+            color: @light-orange;
+            text-decoration: underline;
+        }
+
+        &.type.module.ruby {
+            // color: @syntax-tmp;
+        }
+
+        &.function {
+            color: @syntax-method-name;
+            text-decoration: underline;
+            // font-style: italic;
+        }
+
+        &.section {
+            color: @blue;
+        }
+
+        &.tag {
+            color: @red;
+            text-decoration: underline;
+        }
+    }
+
+    &.other.inherited-class {
+        color: @green;
+
+        &.module.first.ruby {
+        }
+
+        &.module.second.ruby {
+        }
+
+        &.module.third.ruby {
+        }
+    }
+
+    &.other.attribute-name {
+        color: @orange;
+
+        &.id {
+            color: @blue;
+        }
+    }
+}
+
+.keyword {
+    color: @syntax-keyword;
+
+    &.control {
+        color: @syntax-control;
+
+        &.class {
+            color: @syntax-class-identifier;
+        }
+
+        &.def {
+            color: @syntax-method-identifier;
+        }
+
+        &.module.ruby {
+            // color: @syntax-tmp;
+        }
+
+        &.pseudo-method.ruby {
+            color: @syntax-keyword-return;
+        }
+
+        &.start-block.ruby {
+            // color: @syntax-tmp;
+        }
+    }
+
+    &.operator {
+        color: @syntax-operator;
+
+        &.arithmetic {
+            // color: @syntax-tmp;
+        }
+        &.assignment.augmented.ruby {
+            // color: @syntax-tmp;
+        }
+        &.assignment.ruby {
+            // color: @syntax-tmp;
+        }
+        &.comparison.ruby {
+            // color: @syntax-tmp;
+        }
+        &.logical.ruby {
+            // color: @syntax-tmp;
+        }
+        &.other.ruby {
+            // color: @syntax-tmp;
+        }
+    }
+
+    &.other {
+        color: @syntax-keyword-other;
+
+        &.special-method {
+            color: @syntax-keyword-special;
+        }
+
+        &.unit {
+            color: @orange;
+        }
+    }
+}
+
+
+.storage {
+    color: @blue;
+
+    &.modifier {
+        // color: @syntax-modifier;
+        color: inherit;
+
+        &.package {
+            color: @syntax-strage-keyword;
+        }
+
+        &.import {
+            color: @syntax-strage-keyword;
+        }
+    }
+
+    &.type {
+        color: @syntax-type;
+
+        &.variable {
+            color: @syntax-tmp;
+        }
+
+        &.primitive {
+            color: @syntax-type-primitive;
+        }
+
+        &.generic {
+            color: @syntax-type-generic;
+        }
+    }
+}
+
+.constant {
+    color: @green;
+
+    &.character.escape {
+        color: @light-orange;
+    }
+
+    &.numeric {
+        color: @orange;
+    }
+
+    &.language{
+        &.boolean {
+            color: @syntax-boolean;
+        }
+
+        &.nil.ruby {
+            color: @syntax-null;
+        }
+    }
+
+    &.other.color {
+        color: @cyan;
+    }
+
+    &.other.symbol {
+        color: @green;
+
+        &.hashkey {
+        }
+        &.double-quoted.ruby {
+            color: @syntax-symbol-quoted;
+        }
+        &.single-quoted.ruby {
+            color: @syntax-symbol-quoted;
+        }
+    }
+}
+
+.variable {
+    color: @syntax-variable;
+
+    &.constant{
+        color: @syntax-constant;
+    }
+
+    &.interpolation {
+        color: darken(@red, 10%);
+    }
+
+    &.parameter.function {
+        color: @pink;
+    }
+
+    &.language.ruby {
+        color: @syntax-self;
+    }
+
+    &.other.block {
+        color: @syntax-block-variable;
+    }
+
+    &.other.constant {
+    }
+
+    &.other.object {
+        color: @syntax-object;
+    }
+
+    &.other.readwrite {
+
+        &.class {
+        }
+
+        &.global {
+            &.pre-defined {
+            }
+        }
+
+        &.instance.ruby {
+        }
+    }
+}
+
+.invalid{
+    color: inherit;
+    &.illegal {
+        background-color: @red;
+        color: @syntax-background-color;
+    }
+
+    &.deprecated {
+        // color: inherit;
+        color: @syntax-deprecated;
+        text-decoration: line-through;
+    }
+}
+
+.string {
+    color: @cyan;
+
+
+    &.regexp {
+        color: @light-green;
+
+        .source.ruby.embedded {
+            color: @orange;
+        }
+    }
+
+    &.other.link {
+        color: @red;
+    }
+}
+
+.punctuation {
+    &.definition {
+        &.comment {
+            color: inherit;
+
+            &.begin {
+            }
+
+            &.end {
+            }
+        }
+
+        &.variable {
+            color: @syntax-variable;
+        }
+
+        &.string,
+        &.parameters,
+        &.array {
+            color: @syntax-text-color;
+        }
+
+        &.heading,
+        &.identity {
+            color: @blue;
+        }
+
+        &.bold {
+            color: @light-orange;
+            font-style: bold;
+        }
+
+        &.italic {
+            color: @purple;
+            font-style: italic;
+        }
+
+        &.arbitrary-repitition.ruby {
+            color: @syntax-tmp;
+        }
+
+        &.character-class.ruby {
+            color: @syntax-tmp;
+        }
+
+        &.constant.ruby {
+            color: @syntax-tmp;
+        }
+        &.group.ruby {
+            color: @syntax-tmp;
+        }
+        &.parameters.ruby {
+        }
+        &.string.begin.ruby {
+        }
+        &.string.end.ruby {
+        }
+        &.string.ruby {
+            color: @syntax-tmp;
+        }
+        &.variable.ruby {
+        }
+    }
+
+    &.seperator{
+        &.inheritance.ruby {
+            color: @syntax-tmp;
+        }
+        &.key-value {
+        }
+        &.method.ruby {
+        }
+        &.object.ruby {
+        }
+        &.other.ruby {
+        }
+        &.statement.ruby {
+        }
+        &.variable.ruby {
+        }
+    }
+
+    &.whitespace.comment.leading.ruby {
+        // color: @syntax-tmp;
+    }
+
+    &.section {
+        &.embedded {
+            color: darken(@red, 10%);
+
+            &.begin {
+                color: @syntax-tmp;
+            }
+
+            &.end {
+                color: @syntax-tmp;
+            }
+        }
+
+        &.array.begin {
+            // color: @syntax-tmp;
+        }
+
+        &.array.end {
+            // color: @syntax-tmp;
+        }
+
+        &.function {
+            color: @syntax-method-bracket;
+        }
+
+        &.scope {
+            // color: @syntax-tmp;
+
+            &.begin {
+                // color: @syntax-tmp;
+            }
+
+            &.end {
+                // color: @syntax-tmp;
+            }
+        }
+    }
+
+
+    &.method.end {
+        color: @syntax-text-color;
+    }
+}
+
+.support {
+    &.class {
+        color: @syntax-class-name-support;
+        // text-decoration: underline;
+        // font-style: italic;
+    }
+
+    &.function {
+        color: @syntax-method-name-support;
+
+        &.kernel{}
+
+        &.any-method {
+            color: @blue;
+        }
+    }
+
+}
+
+.meta {
+    &.class {
+        color: @syntax-accessor;
+
+        &.identifier {
+            color: @syntax-class-identifier;
+        }
+
+        &.body {
+            color: @syntax-text-color;
+        }
+    }
+
+    &.function.method {
+        &.with-arguments {
+            // color: @syntax-tmp;
+        }
+        &.without-arguments {
+            // color: @syntax-tmp;
+        }
+    }
+
+    &.method {
+        color: @syntax-accessor;
+
+        &.identifier {
+            color: @syntax-text-color;
+        }
+
+        &.body {
+            color: @syntax-text-color;
+        }
+    }
+
+    &.environment-variable {
+        color: @syntax-tmp;
+    }
+
+    &.link {
+        color: @orange;
+    }
+
+    &.require {
+        color: @blue;
+    }
+
+    &.selector {
+        color: @purple;
+    }
+
+    &.separator {
+        background-color: @gray;
+        color: @syntax-text-color;
+    }
+
+    &.embedded {
+        &.line.ruby {
+            color: @syntax-text-color;
+        }
+
+        &.block {
+            &.c {
+            }
+            &.c\+\+ {
+            }
+            &.css {
+            }
+            &.html {
+            }
+            &.js {
+            }
+            &.js.jquery {
+            }
+            &.lua {
+            }
+            &.ruby {
+            }
+            &.shell {
+            }
+            &.sql {
+            }
+        }
+    }
+
+    &.module.ruby {
+        color: @syntax-tmp;
+    }
+    &.require.ruby {
+        color: @syntax-tmp;
+    }
+    &.syntax.ruby.start-block {
+        // color: @syntax-tmp;
+    }
+}
+
+.none {
+    color: @syntax-text-color;
+}
+
+.text.html.embedded{
+}
+
+.markup {
+    &.bold {
+        color: @orange;
+        font-style: bold;
+    }
+
+    &.changed {
+        color: @purple;
+    }
+
+    &.deleted {
+        color: @red;
+    }
+
+    &.italic {
+        color: @purple;
+        font-style: italic;
+    }
+
+    &.heading .punctuation.definition.heading {
+        color: @blue;
+    }
+
+    &.inserted {
+        color: @green;
+    }
+
+    &.list {
+        color: @red;
+    }
+
+    &.quote {
+        color: @orange;
+    }
+
+    &.raw.inline {
+        color: @green;
+    }
+}
+
+.source.gfm .markup {
+    -webkit-font-smoothing: auto;
+    &.heading {
+        color: @green;
+    }
+}
+
+.editor.mini .scroll-view {
+    padding-left: 1px;
+}
