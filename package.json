@@ -1,7 +1,7 @@
 {
   "name": "fruits-syntax",
   "theme": "syntax",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Atom syntax theme mainly tuned for Ruby, Java, and Scala.",
   "repository": "https://github.com/Yuichiroh/fruits-syntax.git",
   "license": "MIT",
